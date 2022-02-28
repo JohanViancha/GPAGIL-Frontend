@@ -1,0 +1,37 @@
+<mat-toolbar class="mat-elevation-z8">
+  <button mat-icon-button *ngIf="sidenav.mode === 'over'" (click)="sidenav.toggle()">
+      <mat-icon *ngIf="!sidenav.opened">
+          menu
+      </mat-icon>
+      <mat-icon *ngIf="sidenav.opened">
+          close
+      </mat-icon>
+  </button>
+  <img class="small_img" src="../assets/logo_small.png" alt="logo">
+
+  
+</mat-toolbar>
+
+<mat-sidenav-container>
+  <mat-sidenav #sidenav="matSidenav" class="mat-elevation-z8">
+
+      <button mat-button class="menu-button">
+          <mat-icon>keyboard_arrow_down</mat-icon>
+          <span>Projects</span>
+      </button>
+      
+
+      <mat-divider></mat-divider>
+
+      <button mat-button class="menu-button">
+          <mat-icon>control_point</mat-icon>
+          <span>New Project</span>
+      </button>
+
+  </mat-sidenav>
+  <mat-sidenav-content>
+      <div class="content mat-elevation-z8">
+          Main content here!
+      </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>

@@ -1,0 +1,90 @@
+
+.container {
+  height: 100vh;  
+}
+
+.login {
+  position: absolute;
+  top:50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  max-width: 50%;
+  text-align: center;
+  display: grid;
+  grid-template-columns: 20rem 20rem;
+}
+
+img {
+  width: 20rem;
+  height: 100%;
+}
+
+.login__img {
+  border-radius: 5px 0 0 5px;
+  height: 30rem;
+  background-image: url("../../../../assets/img1.png");
+  background-position: right;
+  background-repeat: no-repeat;
+  background-color: #94A4C9;
+}
+
+.login__form {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: white;
+  border-radius: 0 5px 5px 0;
+}
+
+.login__input {
+  display: flex;
+  flex-direction: column;
+}
+
+label {
+  color: #1f2d40;
+  display: block;
+  text-align: center;
+  margin-bottom: 1rem;
+  font-size: 0.9rem;
+}
+
+label:first-child{
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 2rem;
+  font-size: 2rem;
+}
+
+input[type="text"],
+input[type="password"] {  
+  width: 15rem;
+  height: 30px;
+  padding: 3px 10px;
+  border: none;
+  border-bottom: solid 1px #304562;
+  margin: 8px 0;
+  display: inline-block;
+}
+
+button {
+  margin-top: 1rem;
+  margin-bottom: 2rem;
+  color: white;
+  width: 6rem;
+  padding: 0.5rem 0.05rem;
+  background-color: #304562;
+  border-radius: 0.9rem;
+  border: none;
+  position: relative;
+  left: 9rem;
+}
+
+button:hover {
+  cursor: pointer;
+  background-color: #1f2d40;
+}
+
+a{
+  text-decoration: none;
+}
