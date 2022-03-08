@@ -1,0 +1,63 @@
+.container {
+  height: 100vh;  
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.login {
+  width: 25vw;
+  background-color: rgb(255, 255, 255);
+  border-radius: 5px;
+  
+}
+
+.register{
+  text-align: center;
+}
+
+label {
+  color: #1f2d40;
+  display: block;
+  text-align: center;
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin: 2rem 0;
+  font-size: 2rem;
+}
+
+input[type="text"],
+input[type="password"]{  
+  background-color: rgb(255, 253, 253);
+  width: 15rem;
+  height: 30px;
+  padding: 3px 10px;
+  border: none;
+  border-bottom: solid 1px #304562;
+  margin: 8px 0;
+}
+.buttons{
+  display: flex;
+  justify-content: space-evenly;
+}
+
+
+button {
+  margin-top: 1rem;
+  margin-bottom: 2rem;
+  color: white;
+  width: 6rem;
+  padding: 0.5rem 0.05rem;
+  background-color: #304562;
+  border-radius: 0.9rem;
+  border: none;
+}
+
+button:hover {
+  cursor: pointer;
+  background-color: #1f2d40;
+}
+
+
+
+

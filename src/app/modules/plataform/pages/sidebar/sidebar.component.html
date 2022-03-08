@@ -1,0 +1,55 @@
+<mat-toolbar class="mat-elevation-z8">
+  <button
+    mat-icon-button
+    *ngIf="sidenav.mode === 'over'"
+    (click)="sidenav.toggle()"
+  >
+    <mat-icon *ngIf="!sidenav.opened"> menu </mat-icon>
+    <mat-icon *ngIf="sidenav.opened"> close </mat-icon>
+  </button>
+  <img class="small_img" src="../assets/logo_small.png" alt="logo" />
+</mat-toolbar>
+
+<mat-sidenav-container>
+  
+  <mat-sidenav #sidenav="matSidenav" class="mat-elevation-z8">
+
+    <img class="avatar mat-elevation-z8" src="https://source.unsplash.com/c_GmwfHBDzk/200x200" />
+
+    <h4 class="name">John Smith</h4>
+    <p class="designation">Software Engineer</p>
+
+    <mat-divider></mat-divider>
+
+    <select class="options-panel" name="OS">
+      <option selected value="0">Proyectos</option>
+
+      <option *ngFor="let item of proyects" value="1">{{item}}</option>
+      
+    </select>
+
+    <mat-divider></mat-divider>
+
+    <button class="options-panel">
+      <mat-icon class="icon">control_point</mat-icon>
+        New Project
+    </button>
+
+    <mat-divider></mat-divider>
+
+   
+      <button class="options-panel">
+        <mat-icon class="icon">exit_to_app</mat-icon>
+          <span>Exit</span>
+      </button>
+   
+
+</mat-sidenav>
+
+
+  <mat-sidenav-content>
+    <div class="mat-elevation-z8">
+      <app-homeworks></app-homeworks>
+    </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>

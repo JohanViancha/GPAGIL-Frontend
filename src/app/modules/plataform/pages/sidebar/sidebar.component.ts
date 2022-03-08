@@ -11,7 +11,8 @@ import { delay } from 'rxjs';
 export class SidebarComponent{
 
   @ViewChild(MatSidenav)
-  sidenav!: MatSidenav;
+  sidenav!: MatSidenav;  
+  proyects: string[] = ['GPAGIL','Drawcreate'];
 
   constructor(private observer: BreakpointObserver) {}
 

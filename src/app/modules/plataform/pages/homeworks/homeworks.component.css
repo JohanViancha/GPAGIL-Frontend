@@ -1,0 +1,142 @@
+.container{
+  padding-top: 2rem;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+h1{ 
+  font-size: 2rem;
+}
+
+.display{
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.add-homework input[type="text"]{
+  width: 40rem;
+  height: 2.7rem;
+  font-size: 1rem;
+}
+
+.d-m{
+  margin-top: 2rem;
+}
+
+
+.example-container {
+  width: 400px;
+  max-width: 100%;
+  margin: 0 25px 25px 0;
+  display: inline-block;
+  vertical-align: top;
+}
+
+.example-list {
+  width: 200px;
+  border: solid 1px #ccc;
+  min-height: 60px;
+  background: white;
+  border-radius: 4px;
+  overflow: hidden;
+  display: block;
+}
+
+.example-box {
+  padding: 20px 10px;
+  border-bottom: solid 1px #ccc;
+  color: rgba(0, 0, 0, 0.87);
+  display: flex;
+  align-items: center;
+  box-sizing: border-box;
+  cursor: move;
+  font-size: 14px;
+}
+
+.cdk-drag-preview {
+  box-sizing: border-box;
+  border-radius: 4px;
+  box-shadow: 0 5px 5px -3px rgba(0, 0, 0, 0.2),
+              0 8px 10px 1px rgba(0, 0, 0, 0.14),
+              0 3px 14px 2px rgba(0, 0, 0, 0.12);
+}
+
+.cdk-drag-placeholder {
+  opacity: 0;
+}
+
+.cdk-drag-animating {
+  transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
+}
+
+.example-box:last-child {
+  border: none;
+}
+
+.example-list.cdk-drop-list-dragging .example-box:not(.cdk-drag-placeholder) {
+  transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
+}
+
+.montserrat{
+  margin: 1rem 0;
+  text-align: center;
+}  
+
+.option{
+  margin: 0 1rem;
+}
+
+.chat{
+  display: flex;
+  align-items: center;
+  padding: 1rem;
+  border-radius: 50px;
+  background-color: #64B5F6;
+  cursor: pointer;
+  position: fixed;
+  top: 85%;
+  left: 95%;
+  z-index: 100;
+  display: fixed;
+}
+
+.chat:hover{
+  background-color: #3f9ce7;
+}
+
+@media (max-width: 400px){
+  .container{
+    padding: 1rem;
+  }
+
+  .display{
+    margin-top: 1rem;
+  }
+
+  .add-homework input[type="text"]{
+    width: 80vw;
+    height: 2.7rem;
+  }
+
+  .montserrat{
+    margin: 1rem 0;
+  }
+
+  .example-list, .example-box{
+    width: 80vw;
+  }
+
+  .chat{
+    top: 85%;
+    left: 80%;
+  }
+
+  
+}
+
+
+
+

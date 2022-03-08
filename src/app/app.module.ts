@@ -4,8 +4,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginModule } from './modules/login/login.module';
-import { SharedModule } from './shared/shared.module';
 import { PlataformModule } from './modules/plataform/plataform.module';
+import { RegisterModule } from './modules/register/register.module';
 
 @NgModule({
   declarations: [
@@ -15,7 +15,8 @@ import { PlataformModule } from './modules/plataform/plataform.module';
     BrowserModule,
     AppRoutingModule,
     LoginModule,
-    PlataformModule
+    PlataformModule,
+    RegisterModule
   ],
   providers: [],
   bootstrap: [AppComponent]

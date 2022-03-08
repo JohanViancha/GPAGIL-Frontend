@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Router, Routes, RouterModule } from '@angular/router';
-import { SidebarComponent } from './pages/sidebar.component';
+import { SidebarComponent } from './pages/sidebar/sidebar.component';
 
 
 

@@ -1,0 +1,84 @@
+<div class="container">
+  <div class="display">
+    <h1 class="text-center montserrat">Todo List</h1>
+  </div>
+  <div>
+    <div class="add-homework">
+      <input
+        type="text"
+        [(ngModel)]="tarea"
+        (keyup.enter)="agregarTarea()"
+        placeholer="Ingrese tarea"
+      />
+    </div>
+  </div>
+
+  <div cdkDropListGroup class="display d-m">
+    <div class="option
+      ">
+      <h4 class="montserrat">To do</h4>
+      <div
+        cdkDropList
+        #todoList="cdkDropList"
+        [cdkDropListData]="todo"
+        [cdkDropListConnectedTo]="[progressList]"
+        class="example-list"
+        (cdkDropListDropped)="drop($event)">
+        <div class="example-box" *ngFor="let item of todo" cdkDrag>
+          {{ item }}
+        </div>
+      </div>
+    </div>
+
+    <div class="option
+    ">
+      <h4 class="montserrat">In Progress</h4>
+      <div
+        cdkDropList
+        #progressList="cdkDropList"
+        [cdkDropListData]="progress"
+        [cdkDropListConnectedTo]="['todoList','doneList']"
+        class="example-list"
+        (cdkDropListDropped)="drop($event)">
+        <div class="example-box" *ngFor="let item of progress" cdkDrag>
+          {{ item }}
+        </div>
+      </div>
+    </div>
+
+    <div class="option
+    ">
+      <h4 class="montserrat">Done</h4>
+      <div
+        cdkDropList
+        #doneList="cdkDropList"
+        [cdkDropListData]="done"
+        [cdkDropListConnectedTo]="[progressList]"
+        class="example-list"
+        (cdkDropListDropped)="drop($event)">
+        <div class="example-box" *ngFor="let item of done" cdkDrag>
+          {{ item }}
+        </div>
+      </div>
+    </div>
+
+
+    <div class="option">
+      <h4 class="montserrat">Delete</h4>
+      <div
+        cdkDropList
+        #deleteList="cdkDropList"
+        [cdkDropListData]="delete"
+        [cdkDropListConnectedTo]="[doneList]"
+        class="example-list"
+        (cdkDropListDropped)="drop($event)">
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="chat">
+    <mat-icon> message</mat-icon>
+  </div>
+</div>
+
