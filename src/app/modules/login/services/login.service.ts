@@ -14,11 +14,10 @@ export class LoginService {
   constructor(private http: HttpClient) { }
 
 
-  // searchUser(): Observable<AddUser[]>{
+  buscar(): Observable<AddUser[]>{
+    const url = `${this.apiUrl}/users/getUsersAll`;
+    return this.http.get<AddUser[]>(url);
 
-  //   const url = `${this.apiUrl}/users/getUsersAll`
-    
-  //   return this.http.get<AddUser[]>(url);    
-  // }
+  }
 
 }

@@ -36,15 +36,16 @@ input[type="password"]{
   border-bottom: solid 1px #304562;
   margin: 8px 0;
 }
+
 .buttons{
   display: flex;
   justify-content: space-evenly;
+  margin-bottom: 2rem;
 }
 
 
 button {
   margin-top: 1rem;
-  margin-bottom: 2rem;
   color: white;
   width: 6rem;
   padding: 0.5rem 0.05rem;
@@ -58,6 +59,34 @@ button:hover {
   background-color: #1f2d40;
 }
 
+@media (max-width: 400px){
 
+  .container{
+    width: 100%;
+  }
+
+  .login{
+    width: 90%;
+  }
+
+  .buttons{
+    flex-direction: column;
+    width: 80%;
+  }
+
+  button{
+    width: 100%;
+  }
+
+  form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+
+  
+}
 
 

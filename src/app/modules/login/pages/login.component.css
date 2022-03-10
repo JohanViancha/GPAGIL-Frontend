@@ -110,4 +110,9 @@ a{
     padding: 2rem;
   }
 
+  button{
+    left: 0;
+    width: 100%;
+  }
+
 }
