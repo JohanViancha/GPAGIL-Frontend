@@ -1,3 +1,4 @@
+import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
@@ -16,7 +17,8 @@ import { RegisterModule } from './modules/register/register.module';
     AppRoutingModule,
     LoginModule,
     PlataformModule,
-    RegisterModule
+    RegisterModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

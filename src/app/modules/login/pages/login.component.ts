@@ -10,19 +10,19 @@ import { AddUser } from '../../../interfaces/user.interface';
 export class LoginComponent{
   users: AddUser[] = [];
 
-   constructor() {}
+   constructor(private loginService : LoginService) {}
 
-//  mostrar(){
-//    this.loginService.searchUser()
-//    .subscribe((users) => {
-//      this.users = users;
-//      console.log(users);
+ mostrar(){
+   this.loginService.searchUser()
+   .subscribe((users) => {
+     this.users = users;
+     console.log(users);
      
-//    },(error => {
-//      console.log(error);
+   },(error => {
+     console.log(error);
      
-//    }))
-//  }
+   }))
+ }
   
 
 }
