@@ -11,6 +11,7 @@ import { AddUser } from '../../../interfaces/user.interface';
 export class LoginComponent{
   users: AddUser[] = [];
 
+<<<<<<< HEAD
    constructor(private loginService: LoginService) {}
 
  mostrar(){
@@ -23,6 +24,20 @@ export class LoginComponent{
      console.log(err);
      
    })
+=======
+   constructor(private loginService : LoginService) {}
+
+ mostrar(){
+   this.loginService.searchUser()
+   .subscribe((users) => {
+     this.users = users;
+     console.log(users);
+     
+   },(error => {
+     console.log(error);
+     
+   }))
+>>>>>>> a0f547cfe8b7f7788904d6f4c27b3d3bb268f4bc
  }
   
 
