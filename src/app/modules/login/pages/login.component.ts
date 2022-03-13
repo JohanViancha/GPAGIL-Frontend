@@ -1,6 +1,8 @@
-import { Component} from '@angular/core';
+import { Component } from '@angular/core';
 import { LoginService } from '../services/login.service';
-import { AddUser } from '../../../interfaces/user.interface';
+import { UserInfor, SearchUser, responseAuth } from '../../../interfaces/user.interface';
+import { Router } from '@angular/router';
+import Swal from 'sweetalert2'
 
 
 @Component({
@@ -8,37 +10,43 @@ import { AddUser } from '../../../interfaces/user.interface';
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
-export class LoginComponent{
-  users: AddUser[] = [];
+export class LoginComponent {
+  users: UserInfor[] = [];
 
-<<<<<<< HEAD
-   constructor(private loginService: LoginService) {}
+  user: SearchUser = {
+    email: '',
+    password: ''
+  }
 
- mostrar(){
-   this.loginService.buscar()
-   .subscribe(users => {
-     this.users = users;
-   },(err) => {
-     console.log('errorrrrrrrrrrrrrrrrrrrrrrrrrrrrrr');
-     
-     console.log(err);
-     
-   })
-=======
-   constructor(private loginService : LoginService) {}
+  constructor(private loginService: LoginService, private router: Router) { }
 
- mostrar(){
-   this.loginService.searchUser()
-   .subscribe((users) => {
-     this.users = users;
-     console.log(users);
-     
-   },(error => {
-     console.log(error);
-     
-   }))
->>>>>>> a0f547cfe8b7f7788904d6f4c27b3d3bb268f4bc
- }
-  
+  authentication() {
+    console.log(this.user)
+    
+    this.loginService.authentication(this.user)
+      .subscribe((user:responseAuth) => {
+        if (user.state === 'correct') {  
+
+          this.router.navigate(['/plataform'])
+          sessionStorage.setItem('userSe',JSON.stringify(user));
+        }
+        else{
+          Swal.fire({
+            title: 'Error!',
+            text: 'Do you want to continue',
+            icon: 'error',
+            confirmButtonText: 'Cool'
+          })
+        }
+        console.log(user);
+
+      }, (error => {
+        console.log(error);
+
+
+      }))
+  }
+
+
 
 }

@@ -1,4 +1,4 @@
-export interface AddUser {
+export interface UserInfor{
   id_user:       number;
   name_user:     string;
   lastname_user: string;
@@ -8,6 +8,12 @@ export interface AddUser {
 }
 
 export interface SearchUser{
-  email_user:    string;
-  password_user: string;
+  email:    string;
+  password: string;
+}
+
+export interface responseAuth{
+  msg: string,
+  state: string,
+  user?: UserInfor
 }
