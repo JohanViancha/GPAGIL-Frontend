@@ -4,16 +4,16 @@
       <form>
         <label><i class="bi bi-person-circle"></i> Register</label>
 
-        <input type="text" placeholder="Nombre" />
-        <input type="text" placeholder="Apellido" />
+        <input type="text" placeholder="Nombre" [(ngModel)]="userObj.name" name="name"/>
+        <input type="text" placeholder="Apellido" [(ngModel)]="userObj.lastname" name="lastname"/>
 
-        <input type="text" placeholder="Email" />
-        <input type="password" placeholder="Password" />
+        <input type="text" placeholder="Email" [(ngModel)]="userObj.email" name="email"/>
+        <input type="password" placeholder="Password" [(ngModel)]="userObj.password" name="password"/>
 
         
         <div class="buttons">
           <button [routerLink]="['/login']" >Regresar</button>
-          <button>Registrarse</button>
+          <button (click)="registerUser()">Registrarse</button>
         </div>
       </form>
     </div>

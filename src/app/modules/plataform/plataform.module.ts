@@ -13,6 +13,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { HomeworksComponent } from './pages/homeworks/homeworks.component';
 import { DragDropModule } from '@angular/cdk/drag-drop';
 import { FormsModule } from '@angular/forms';
+import { LoginModule } from '../login/login.module';
 
 
 
@@ -27,7 +28,8 @@ import { FormsModule } from '@angular/forms';
     MatIconModule,
     MatDividerModule,
     DragDropModule,
-    FormsModule
+    FormsModule,
+    LoginModule
 
   ],
   declarations: [

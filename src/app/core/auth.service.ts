@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 @Injectable({
   providedIn: 'root'
 })
-export class AuthServiceService {
+export class AuthService {
   private id_user:  number = 0;
   private name_user: string = '';
   private lastname_user: string = '';

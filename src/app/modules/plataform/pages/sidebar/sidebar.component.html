@@ -16,7 +16,7 @@
 
     <img class="avatar mat-elevation-z8" src="https://source.unsplash.com/c_GmwfHBDzk/200x200" />
 
-    <h4 class="name">John Smith</h4>
+    <h4 class="name">{{userSe.name_user}} {{userSe.lastname_user}}</h4>
     <p class="designation">Software Engineer</p>
 
     <mat-divider></mat-divider>
@@ -38,7 +38,7 @@
     <mat-divider></mat-divider>
 
    
-      <button class="options-panel">
+      <button class="options-panel" (click)="exitSesion()">
         <mat-icon class="icon">exit_to_app</mat-icon>
           <span>Exit</span>
       </button>

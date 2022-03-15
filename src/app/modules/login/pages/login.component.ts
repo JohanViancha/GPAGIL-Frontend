@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { LoginService } from '../services/login.service';
-import { UserInfor, SearchUser, responseAuth } from '../../../interfaces/user.interface';
+import { UserInfor, SearchUser, ResponseAuth } from '../../../interfaces/user.interface';
 import { Router } from '@angular/router';
 import Swal from 'sweetalert2'
 
@@ -11,7 +11,7 @@ import Swal from 'sweetalert2'
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent {
-  users: UserInfor[] = [];
+  resp: string = '';
 
   user: SearchUser = {
     email: '',
@@ -20,33 +20,50 @@ export class LoginComponent {
 
   constructor(private loginService: LoginService, private router: Router) { }
 
-  authentication() {
-    console.log(this.user)
-    
+  authentication() {    
     this.loginService.authentication(this.user)
-      .subscribe((user:responseAuth) => {
-        if (user.state === 'correct') {  
+      .subscribe((userRe: ResponseAuth) => {
+        if (userRe.state === 'correct') {  
 
+          this.resp = JSON.parse(JSON.stringify(userRe.user),function (k,v) {
+            if(k !== 'password_user') return v;
+          });
+          
+          localStorage.setItem('userSe',JSON.stringify(this.resp));          
           this.router.navigate(['/plataform'])
-          sessionStorage.setItem('userSe',JSON.stringify(user));
         }
-        else{
-          Swal.fire({
-            title: 'Error!',
-            text: 'Do you want to continue',
-            icon: 'error',
-            confirmButtonText: 'Cool'
-          })
+        else if(userRe.state === 'requerid'){
+          this.alert('Error', 'Todos los campos son obligatorios');
         }
-        console.log(user);
-
       }, (error => {
-        console.log(error);
-
-
+        this.alert('Error', 'Todos los campos son obligatorios');
       }))
   }
 
+  dataLocalStorage(): UserInfor{
+    return JSON.parse(localStorage.getItem('userSe')!);
+  }
+
+  alert(state: string, msg: string) {
+    switch (state) {
+      case 'Correcto':
+        Swal.fire({
+          title: state,
+          text: msg,
+          icon: 'success'
+        })
+        break;
+      case 'Error':
+        Swal.fire({
+          title: state,
+          text: msg,
+          icon: 'error'
+        })
+        break;
+    }
+
+
+  }
 
 
 }
