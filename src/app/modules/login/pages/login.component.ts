@@ -2,7 +2,9 @@ import { Component } from '@angular/core';
 import { LoginService } from '../services/login.service';
 import { UserInfor, SearchUser, ResponseAuth } from '../../../interfaces/user.interface';
 import { Router } from '@angular/router';
-import Swal from 'sweetalert2'
+import Swal from 'sweetalert2';
+import { AlertsService } from 'src/app/core/alerts.service';
+import { throwError } from 'rxjs';
 
 
 @Component({
@@ -18,52 +20,37 @@ export class LoginComponent {
     password: ''
   }
 
-  constructor(private loginService: LoginService, private router: Router) { }
+  constructor(private loginService: LoginService, 
+              private router: Router,
+              private alertService: AlertsService) { }
 
   authentication() {    
+
+    this.alertService.loading();
+
     this.loginService.authentication(this.user)
       .subscribe((userRe: ResponseAuth) => {
-        if (userRe.state === 'correct') {  
+        Swal.close();
+        if (userRe.state === 'correct' && 
+            userRe.user?.password_user == this.user.password ) {  
 
-          this.resp = JSON.parse(JSON.stringify(userRe.user),function (k,v) {
-            if(k !== 'password_user') return v;
-          });
-          
-          localStorage.setItem('userSe',JSON.stringify(this.resp));          
+          localStorage.setItem('userSe',JSON.stringify(userRe.user));          
           this.router.navigate(['/plataform'])
         }
         else if(userRe.state === 'requerid'){
-          this.alert('Error', 'Todos los campos son obligatorios');
+          this.alertService.showAlert('Error', 'Todos los campos son obligatorios');
+        }else{
+          this.alertService.showAlert('Error', 'El usuario y/o contraseña son incorrectos');
         }
-      }, (error => {
-        this.alert('Error', 'Todos los campos son obligatorios');
+      }, (error => { 
+
+       console.log(error);
+          
       }))
   }
 
   dataLocalStorage(): UserInfor{
     return JSON.parse(localStorage.getItem('userSe')!);
   }
-
-  alert(state: string, msg: string) {
-    switch (state) {
-      case 'Correcto':
-        Swal.fire({
-          title: state,
-          text: msg,
-          icon: 'success'
-        })
-        break;
-      case 'Error':
-        Swal.fire({
-          title: state,
-          text: msg,
-          icon: 'error'
-        })
-        break;
-    }
-
-
-  }
-
 
 }

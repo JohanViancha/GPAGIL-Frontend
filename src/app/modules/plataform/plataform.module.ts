@@ -14,6 +14,7 @@ import { HomeworksComponent } from './pages/homeworks/homeworks.component';
 import { DragDropModule } from '@angular/cdk/drag-drop';
 import { FormsModule } from '@angular/forms';
 import { LoginModule } from '../login/login.module';
+import { HttpClientModule } from '@angular/common/http';
 
 
 
@@ -29,7 +30,8 @@ import { LoginModule } from '../login/login.module';
     MatDividerModule,
     DragDropModule,
     FormsModule,
-    LoginModule
+    LoginModule,
+    HttpClientModule
 
   ],
   declarations: [

@@ -17,14 +17,14 @@
     <img class="avatar mat-elevation-z8" src="https://source.unsplash.com/c_GmwfHBDzk/200x200" />
 
     <h4 class="name">{{userSe.name_user}} {{userSe.lastname_user}}</h4>
-    <p class="designation">Software Engineer</p>
+    <p class="designation">{{userSe.email_user}}</p>
 
     <mat-divider></mat-divider>
 
     <select class="options-panel" name="OS">
-      <option selected value="0">Proyectos</option>
+      <option *ngIf="proyects.length == 0" selected value="0">No hay proyectos</option>
 
-      <option *ngFor="let item of proyects" value="1">{{item}}</option>
+      <option *ngFor="let item of proyects" value="1">{{item.name_project}}</option>
       
     </select>
 

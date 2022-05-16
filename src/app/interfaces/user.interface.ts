@@ -7,6 +7,13 @@ export interface UserInfor{
   img_user?:      string;
 }
 
+export interface User{
+  id_user:       number;
+  name_user:     string;
+  lastname_user: string;
+  email_user:    string;
+}
+
 export interface SearchUser{
   email:    string;
   password: string;
